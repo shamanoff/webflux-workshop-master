@@ -8,11 +8,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class HomeController {
 
 	private final TradingUserRepository tradingUserRepository;
-
 	public HomeController(TradingUserRepository tradingUserRepository) {
 		this.tradingUserRepository = tradingUserRepository;
 	}
-
 	@GetMapping("/")
 	public String home(Model model) {
 		model.addAttribute("users", this.tradingUserRepository.findAll());
